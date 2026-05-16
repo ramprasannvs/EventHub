@@ -50,10 +50,10 @@ exports.getEvents = async (req, res) => {
     try {
         const filters = {};
 
-        // Filter out past events (only show today and future events)
+        // Filter out past events (show today and future events)
         const today = new Date();
-        today.setHours(0, 0, 0, 0);
-        filters.date = { $gte: today };
+        today.setHours(0, 0, 0, 0); // Start of today
+        filters.date = { $gte: today }; // Greater than or equal to start of today
 
         // Category filter
         if (req.query.category) {
