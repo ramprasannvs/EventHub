@@ -50,7 +50,7 @@ exports.getEvents = async (req, res) => {
     try {
         const filters = {};
 
-        // Filter out past events (only show upcoming events)
+        // Filter out past events (only show today and future events)
         const today = new Date();
         today.setHours(0, 0, 0, 0);
         filters.date = { $gte: today };
